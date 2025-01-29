@@ -1,10 +1,9 @@
-import GameStatus from "./GameStatus";
-import UserProfile from "../user-profile/UserProfile";
-import { UserLevel } from "../user-profile/UserProfile";
-import { useInitData } from "@vkruglikov/react-telegram-web-app";
-import left from "./assets/left.svg";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useInitData } from "@vkruglikov/react-telegram-web-app"
+import { useEffect, useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import UserProfile, { UserLevel } from "../user-profile/UserProfile"
+import left from "./assets/left.svg"
+import GameStatus from "./GameStatus"
 
 function Header() {
   const [initDataUnsafe] = useInitData();
@@ -18,7 +17,7 @@ function Header() {
     setIsSubpage((location.pathname.match(/\//g) || []).length >= 2);
   }, [location]);
 
-  const [gameData, setGameData] = useState<any>(null);
+  const [_, setGameData] = useState<any>(null);
 
   const navigate = useNavigate();
 
