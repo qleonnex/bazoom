@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import HistoryButton from './Game/HistoryButton';
-import BetAmount from './Game/BetAmount';
-import BetToggle from './Game/BetToggle';
-import WinDisplay from './WinDisplay';
+import { useState } from 'react'
+import BetAmount from './Game/BetAmount'
+import BetToggle from './Game/BetToggle'
+import HistoryButton from './Game/HistoryButton'
 
 interface GameControlsProps {
     userId: number;
     className?: string;
 }
 
-function GameControls({ userId, className = '' }: GameControlsProps) {
+function GameControls({ className = '' }: GameControlsProps) {
     const [betAmount, setBetAmount] = useState(1);
     const [leftCurrentBet, setLeftCurrentBet] = useState(false);
 

@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { useInitData } from "@vkruglikov/react-telegram-web-app";
-import { getProfile } from "../../services/UserService";
-import BalanceStatus from "../../components/main/BalanceSatatus";
-import GameControls from "../../components/main/GameControls";
-import JackpotCard from "../../components/main/JackpotCard";
-import WinDisplay from "../../components/main/WinDisplay";
+import { useInitData } from "@vkruglikov/react-telegram-web-app"
+import { useCallback, useEffect, useState } from "react"
+import BalanceStatus from "../../components/main/BalanceSatatus"
+import GameControls from "../../components/main/GameControls"
+import JackpotCard from "../../components/main/JackpotCard"
+import WinDisplay from "../../components/main/WinDisplay"
+import { getProfile } from "../../services/UserService"
 
 function MainPage() {
   const [initDataUnsafe] = useInitData();
@@ -15,7 +15,7 @@ function MainPage() {
     virus: 0,
     dice: 0
   });
-  const [jackpot, setJackpot] = useState({
+  const [jackpot] = useState({
     current: 233,
     required: 41000
   });

@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import diceIcon from '/assets/dice-icon.png';
-import TokenSelectModal from './TokenSelectModal';
-import TokenItem from './types';
+import { useState } from 'react'
+import TokenSelectModal from './TokenSelectModal'
+import TokenItem from './types'
+import diceIcon from '/assets/dice-icon.png'
 
 interface BetDisplayProps {
     amount: number;
@@ -10,7 +10,7 @@ interface BetDisplayProps {
 
 function BetDisplay({ amount, onChangeToken }: BetDisplayProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedToken, setSelectedToken] = useState<TokenItem>({
+    const [_, setSelectedToken] = useState<TokenItem>({
         symbol: '$DICE',
         icon: <img src={diceIcon} className="h-5 w-5" />
     });

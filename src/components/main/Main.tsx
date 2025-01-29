@@ -1,28 +1,25 @@
 import {
   useInitData,
-  useShowPopup,
   WebAppProvider,
-} from "@vkruglikov/react-telegram-web-app";
+} from "@vkruglikov/react-telegram-web-app"
+import i18next from "i18next"
+import HttpApi from "i18next-http-backend"
+import { useEffect } from "react"
+import { I18nextProvider, initReactI18next, useTranslation } from "react-i18next"
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from "react-router-dom";
-import FriendList from "../../pages/friend-list/FriendList";
-import MainPage from "../../pages/main/MainPage";
-import RegisterPage from "../../pages/register/RegisterPage";
-import WorkInProgressPage from "../../pages/work-in-progress/WorkInProgressPage";
-import PageLayout from "../page-layout/PageLayout";
-import { useEffect } from "react";
-import i18next from "i18next";
-import { initReactI18next } from "react-i18next";
-import HttpApi from "i18next-http-backend";
-import { I18nextProvider } from "react-i18next";
-import BoostsBage from "../../pages/boosts/BoostsPage";
-import VideosPage from "../../pages/videos/VideosPage";
-import FriendsPage from "../../pages/friends/FriendsPage";
-import { useTranslation } from "react-i18next";
+} from "react-router-dom"
+import BoostsBage from "../../pages/boosts/BoostsPage"
+import FriendList from "../../pages/friend-list/FriendList"
+import FriendsPage from "../../pages/friends/FriendsPage"
+import MainPage from "../../pages/main/MainPage"
+import RegisterPage from "../../pages/register/RegisterPage"
+import VideosPage from "../../pages/videos/VideosPage"
+import WorkInProgressPage from "../../pages/work-in-progress/WorkInProgressPage"
+import PageLayout from "../page-layout/PageLayout"
 
 const router = createBrowserRouter(
   createRoutesFromElements([

@@ -1,9 +1,8 @@
-import { useTranslation } from "react-i18next";
-import taxiIcon from '/assets/taxi-icon.png';
-import virusIcon from '/assets/virus-icon.png';
-import diceIcon from '/assets/dice-icon.png';
-import dicesBackground from '/assets/dices.png';
-import { formatNumber } from "../../services/UIService";
+import { formatNumber } from "../../services/UIService"
+import diceIcon from '/assets/dice-icon.png'
+import dicesBackground from '/assets/dices.png'
+import taxiIcon from '/assets/taxi-icon.png'
+import virusIcon from '/assets/virus-icon.png'
 
 interface BalanceStatusProps {
   taxiBalance: number;
@@ -12,8 +11,6 @@ interface BalanceStatusProps {
 }
 
 function BalanceStatus({ taxiBalance, virusBalance, diceBalance }: BalanceStatusProps) {
-  const { t } = useTranslation();
-
   return (
     <div className="balance-card rounded-2xl bg-[#6A0DAD] p-4 sm:p-6 shadow-lg overflow-hidden"
       style={{ backgroundImage: `url(${dicesBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

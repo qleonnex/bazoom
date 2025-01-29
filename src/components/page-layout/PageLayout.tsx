@@ -1,12 +1,12 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import Header from "../header/Header";
-import NavMenu from "../nav-menu/NavMenu";
-import { useExpand, useInitData } from "@vkruglikov/react-telegram-web-app";
-import { useEffect, useState } from "react";
-import LoadingScreen from "../loading-screen/LoadingScreen";
-import { getProfile, updateProfile } from "../../services/UserService";
-import taxiIcon from "../../assets/taxi-icon.png";
-import { useTranslation } from "react-i18next";
+import { useExpand, useInitData } from "@vkruglikov/react-telegram-web-app"
+import { useEffect, useState } from "react"
+import { useTranslation } from "react-i18next"
+import { Outlet } from "react-router-dom"
+import taxiIcon from "../../assets/taxi-icon.png"
+import { getProfile, updateProfile } from "../../services/UserService"
+import Header from "../header/Header"
+import LoadingScreen from "../loading-screen/LoadingScreen"
+import NavMenu from "../nav-menu/NavMenu"
 
 function TelegramRedirect() {
   const { t } = useTranslation();
@@ -39,7 +39,6 @@ function PageLayout() {
   const [initDataUnsafe, initData] = useInitData();
   const [isLoading, setLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const navigate = useNavigate();
 
   // Если нет данных Telegram, показываем страницу перенаправления
   if (!initData && !initDataUnsafe?.user) {
@@ -57,7 +56,7 @@ function PageLayout() {
       setLoadingProgress(prev => Math.min(prev + 2, 80));
     }, 125);
 
-    getProfile(initData).then((res) => {
+    getProfile(initData).then(() => {
       updateProfile(initData);
 
       // Очищаем интервал
