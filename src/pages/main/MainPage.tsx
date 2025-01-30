@@ -1,7 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useInitData } from "@vkruglikov/react-telegram-web-app"
 import { useEffect, useState } from 'react'
-import BalanceStatus from "../../components/main/BalanceSatatus"
 import GameControls from "../../components/main/GameControls"
 import JackpotCard from "../../components/main/JackpotCard"
 import WinDisplay from "../../components/main/WinDisplay"
@@ -45,11 +44,12 @@ function MainPage() {
       <div className="flex flex-1 flex-col gap-4 p-4">
         {/* Карточки баланса и джекпота */}
         <div className="grid grid-cols-2 gap-4">
-          <BalanceStatus
+          {/* <BalanceStatus
             taxiBalance={balances.taxi}
             virusBalance={balances.virus}
             diceBalance={balances.dice}
-          />
+          /> */}
+          {JSON.stringify(balances)}
           <JackpotCard
             won={jackpot.current}
             required={jackpot.required}
