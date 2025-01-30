@@ -35,7 +35,7 @@ function MainPage() {
   })
 
   useEffect(() => {
-    setBalances(data);
+    setBalances(data.data);
   }, [data])
 
   return (
