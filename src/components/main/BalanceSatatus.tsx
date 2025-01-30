@@ -11,6 +11,7 @@ interface BalanceStatusProps {
 }
 
 function BalanceStatus({ taxiBalance, virusBalance, diceBalance }: BalanceStatusProps) {
+
   return (
     <div className="balance-card rounded-2xl bg-[#6A0DAD] p-4 sm:p-6 shadow-lg overflow-hidden"
       style={{ backgroundImage: `url(${dicesBackground})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

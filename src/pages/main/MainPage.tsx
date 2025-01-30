@@ -1,10 +1,10 @@
+import { useQuery } from '@tanstack/react-query'
 import { useInitData } from "@vkruglikov/react-telegram-web-app"
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 import BalanceStatus from "../../components/main/BalanceSatatus"
 import GameControls from "../../components/main/GameControls"
 import JackpotCard from "../../components/main/JackpotCard"
 import WinDisplay from "../../components/main/WinDisplay"
-import { getProfile } from "../../services/UserService"
 
 function MainPage() {
   const [initDataUnsafe] = useInitData();
@@ -15,30 +15,24 @@ function MainPage() {
     virus: 0,
     dice: 0
   });
+
   const [jackpot] = useState({
     current: 233,
     required: 41000
   });
-  const [, initData] = useInitData();
 
-  const updateGameState = useCallback(async () => {
-    if (!initData) return;
-    const profile = await getProfile(initData);
-    setBalances({
-      taxi: profile?.taxiBalance || 0,
-      virus: profile?.virusBalance || 0,
-      dice: profile?.diceBalance || 0
-    });
-  }, [initData]);
+  const { data } = useQuery({
+    queryKey: ["user/balance"],
+    queryFn: async () => {
+      const response = await fetch("https://bot.bazoom.ru/api/dice/balance?user_id=249835432");
+      const data = await response.json()
+      return data;
+    },
+  })
 
   useEffect(() => {
-    updateGameState();
-  }, [updateGameState]);
-
-  useEffect(() => {
-    if (!user) return;
-    updateGameState();
-  }, [user]);
+    setBalances(data);
+  }, [data])
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-900">
