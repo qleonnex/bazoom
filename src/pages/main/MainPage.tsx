@@ -24,7 +24,11 @@ function MainPage() {
   const { data } = useQuery({
     queryKey: ["user/balance"],
     queryFn: async () => {
-      const response = await fetch("https://bot.bazoom.ru/api/dice/balance?user_id=249835432");
+      const response = await fetch("https://bot.bazoom.ru/api/dice/balance?user_id=249835432", {
+        headers: {
+          "Authorization": "Bearer fgnokuwerDFBjcbvlijrt98Q5iwhebjasCjknfd0b293hgthvJDdlfoJ0918brklhho"
+        }
+      });
       const data = await response.json()
       return data;
     },
