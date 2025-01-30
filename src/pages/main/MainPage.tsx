@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useInitData } from "@vkruglikov/react-telegram-web-app"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import GameControls from "../../components/main/GameControls"
 import JackpotCard from "../../components/main/JackpotCard"
 import WinDisplay from "../../components/main/WinDisplay"
@@ -8,12 +8,6 @@ import WinDisplay from "../../components/main/WinDisplay"
 function MainPage() {
   const [initDataUnsafe] = useInitData();
   const user = initDataUnsafe!.user!;
-
-  const [balances, setBalances] = useState({
-    taxi: 0,
-    virus: 0,
-    dice: 0
-  });
 
   const [jackpot] = useState({
     current: 233,
@@ -33,10 +27,6 @@ function MainPage() {
     },
   })
 
-  useEffect(() => {
-    setBalances(data);
-  }, [data])
-
   return (
     <div className="flex min-h-screen flex-col bg-gray-900">
       {/* Баннер джекпота */}
@@ -49,7 +39,8 @@ function MainPage() {
             virusBalance={balances.virus}
             diceBalance={balances.dice}
           /> */}
-          {JSON.stringify(balances)}
+          <p>Информ</p>
+          {JSON.stringify(data)}
           <JackpotCard
             won={jackpot.current}
             required={jackpot.required}
